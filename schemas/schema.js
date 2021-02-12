@@ -26,5 +26,26 @@ export default createSchema({
         }
       ]
     },
+    {
+      title: 'Gallery',
+      name: 'gallery',
+      type: 'document',
+      fields: [
+        {
+          title: 'Gallery Name',
+          name: 'name',
+          type: 'string'
+        },
+        {
+          title: 'Photos',
+          name: 'photos',
+          type: 'array',
+          of: [{
+            type: 'reference',
+            to: [{ type: 'photo' }]
+          }]
+        }
+      ]
+    },
   ]),
 });
