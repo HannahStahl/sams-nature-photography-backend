@@ -5,6 +5,18 @@ export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
     {
+      title: 'Gallery',
+      name: 'gallery',
+      type: 'document',
+      fields: [
+        {
+          title: 'Gallery Name',
+          name: 'name',
+          type: 'string'
+        }
+      ]
+    },
+    {
       title: 'Photo',
       name: 'photo',
       type: 'document',
@@ -23,27 +35,12 @@ export default createSchema({
           title: 'Image',
           name: 'image',
           type: 'image'
-        }
-      ]
-    },
-    {
-      title: 'Gallery',
-      name: 'gallery',
-      type: 'document',
-      fields: [
-        {
-          title: 'Gallery Name',
-          name: 'name',
-          type: 'string'
         },
         {
-          title: 'Photos',
-          name: 'photos',
-          type: 'array',
-          of: [{
-            type: 'reference',
-            to: [{ type: 'photo' }]
-          }]
+          title: 'Gallery',
+          name: 'gallery',
+          type: 'reference',
+          to: [{ type: 'gallery' }]
         }
       ]
     },
