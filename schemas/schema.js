@@ -7,12 +7,13 @@ export default createSchema({
     {
       title: 'Photo',
       name: 'photo',
-      type: 'object',
+      type: 'document',
       fields: [
         {
           title: 'Title',
           name: 'title',
-          type: 'string'
+          type: 'string',
+          validation: Rule => Rule.required()
         },
         {
           title: 'Description',
@@ -22,7 +23,8 @@ export default createSchema({
         {
           title: 'Image',
           name: 'image',
-          type: 'image'
+          type: 'image',
+          validation: Rule => Rule.required()
         }
       ]
     },
@@ -34,13 +36,21 @@ export default createSchema({
         {
           title: 'Gallery Name',
           name: 'name',
-          type: 'string'
+          type: 'string',
+          validation: Rule => Rule.required()
         },
         {
           title: 'Photos',
           name: 'photos',
           type: 'array',
-          of: [{ type: 'photo' }]
+          of: [{
+            type: 'reference',
+            to: [{ type: 'photo' }]
+          }],
+          options: {
+            sortable: false,
+            layout: 'grid'
+          }
         }
       ]
     },
