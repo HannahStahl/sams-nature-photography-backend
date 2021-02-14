@@ -44,10 +44,7 @@ export default createSchema({
           title: 'Photos',
           name: 'photos',
           type: 'array',
-          of: [{
-            type: 'reference',
-            to: [{ type: 'photo' }]
-          }],
+          of: [{ type: 'photo' }],
           options: {
             sortable: false,
             layout: 'grid'
