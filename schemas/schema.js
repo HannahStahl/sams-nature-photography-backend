@@ -40,6 +40,12 @@ export default createSchema({
           validation: Rule => Rule.required()
         },
         {
+          title: 'Preview Photo',
+          name: 'previewPhoto',
+          type: 'image',
+          validation: Rule => Rule.required()
+        },
+        {
           title: 'Photos',
           name: 'photos',
           type: 'array',
