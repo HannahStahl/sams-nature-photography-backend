@@ -1,61 +1,9 @@
 import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
+import gallery from './gallery';
+import photo from './photo';
 
 export default createSchema({
   name: 'default',
-  types: schemaTypes.concat([
-    {
-      title: 'Photo',
-      name: 'photo',
-      type: 'object',
-      fields: [
-        {
-          title: 'Title',
-          name: 'title',
-          type: 'string',
-          validation: Rule => Rule.required()
-        },
-        {
-          title: 'Description',
-          name: 'description',
-          type: 'string'
-        },
-        {
-          title: 'Image',
-          name: 'image',
-          type: 'image',
-          validation: Rule => Rule.required()
-        }
-      ]
-    },
-    {
-      title: 'Gallery',
-      name: 'gallery',
-      type: 'document',
-      fields: [
-        {
-          title: 'Gallery Name',
-          name: 'name',
-          type: 'string',
-          validation: Rule => Rule.required()
-        },
-        {
-          title: 'Preview Photo',
-          name: 'previewPhoto',
-          type: 'image',
-          validation: Rule => Rule.required()
-        },
-        {
-          title: 'Photos',
-          name: 'photos',
-          type: 'array',
-          of: [{ type: 'photo' }],
-          options: {
-            layout: 'grid'
-          },
-          validation: Rule => Rule.required().min(1)
-        }
-      ]
-    },
-  ]),
+  types: schemaTypes.concat([photo, gallery]),
 });

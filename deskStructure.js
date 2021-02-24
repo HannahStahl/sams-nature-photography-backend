@@ -1,5 +1,3 @@
 import S from '@sanity/desk-tool/structure-builder'
 
-export default () =>
-  S.documentTypeList('gallery')
-    .title('Galleries')
+export default () => S.documentTypeList('gallery').title('Galleries')
