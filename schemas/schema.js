@@ -7,7 +7,7 @@ export default createSchema({
     {
       title: 'Photo',
       name: 'photo',
-      type: 'document',
+      type: 'object',
       fields: [
         {
           title: 'Title',
@@ -47,6 +47,7 @@ export default createSchema({
           options: {
             layout: 'grid'
           },
+          validation: Rule => Rule.required().min(1)
         }
       ]
     },
