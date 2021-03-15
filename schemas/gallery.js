@@ -10,6 +10,15 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
+      options: {
+        source: 'name'
+      },
+      validation: Rule => Rule.required()
+    },
+    {
       title: 'Preview Photo',
       name: 'previewPhoto',
       type: 'image',
